@@ -117,15 +117,15 @@ def plot_graph():
 
     fig, ax = plt.subplots(figsize = (20,12))
 
-    ax.scatter(data['prog_passes']/data['total_passes'], data['successful_tackles'], marker = 'x', c = 'black')
-    ax.scatter(top_players['prog_passes']/top_players['total_passes'], top_players['successful_tackles'], marker = 'x', c = 'red')
-    ax.scatter(top_passers['prog_passes']/top_passers['total_passes'], top_passers['successful_tackles'], marker = 'x', c = 'red')
-    ax.scatter(top_tacklers['prog_passes']/top_tacklers['total_passes'], top_tacklers['successful_tackles'], marker = 'x', c = 'red')
+    ax.scatter(data['prog_passes']/data['total_passes'] * 100, data['successful_tackles'], marker = 'x', c = 'black')
+    ax.scatter(top_players['prog_passes']/top_players['total_passes'] * 100, top_players['successful_tackles'], marker = 'x', c = 'red')
+    ax.scatter(top_passers['prog_passes']/top_passers['total_passes'] * 100, top_passers['successful_tackles'], marker = 'x', c = 'red')
+    ax.scatter(top_tacklers['prog_passes']/top_tacklers['total_passes'] * 100, top_tacklers['successful_tackles'], marker = 'x', c = 'red')
     
     texts = []
     for index, row in top_players.iterrows():
         texts.append(ax.text(
-            x=row['prog_passes']/row['total_passes'],
+            x=row['prog_passes']/row['total_passes'] * 100,
             y=row['successful_tackles'],
             s=row['player'],
             fontsize=11,
@@ -134,7 +134,7 @@ def plot_graph():
         ))
     for index, row in top_passers.iterrows():
         texts.append(ax.text(
-            x=row['prog_passes']/row['total_passes'],
+            x=row['prog_passes']/row['total_passes'] * 100,
             y=row['successful_tackles'],
             s=row['player'],
             fontsize=11,
@@ -143,7 +143,7 @@ def plot_graph():
         ))
     for index, row in top_tacklers.iterrows():
         texts.append(ax.text(
-            x=row['prog_passes']/row['total_passes'],
+            x=row['prog_passes']/row['total_passes'] * 100,
             y=row['successful_tackles'],
             s=row['player'],
             fontsize=11,
@@ -155,8 +155,10 @@ def plot_graph():
 
     title = f"Successful tackles vs progressive pass rate, Premier League 2015/16"
     ax.set_title(title, fontsize=18, pad=3)
-    ax.set_xlabel("Progressive passes / total passes", fontsize = 16)
+    ax.set_xlabel("Progressive pass rate (% of total passes)", fontsize = 16)
     ax.set_ylabel("Successful tackles", fontsize = 16)
+    plt.xticks(fontsize=14)
+    plt.yticks(fontsize=14)
     fig.tight_layout()
     fig.savefig('outputs/passes_tackles.png', dpi=150)
 
