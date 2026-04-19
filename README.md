@@ -1,5 +1,5 @@
 # Football Analysis
-Using the statsbomb data to make a few graphs.
+Using the statsbomb data with Python to make a few graphs. 
 
 ## Premier League 2015/16 season
 ![Plot of successful tackle vs progressive pass rate)](assets/passes_tackles.png)
