@@ -100,7 +100,7 @@ def pass_vs_tackle():
 
     table = table.fillna(0)
 
-    regular_players = table[table['total_passes'] > 400]
+    regular_players = table[(table['total_passes'] > 400) & (table['total_tackles'] > 10)]
 
     return regular_players
     
