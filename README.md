@@ -8,3 +8,5 @@ Using the statsbomb data with Python to make a few graphs.
 ## Bundesliga 2015/16 season
 ![Plot of successful tackle vs progressive pass rate)](assets/comparison_radar.png)
 <p align="center"><em>A radar plot comparing the top two forwards from the shortlist. Each player is assigned a score, calculated using a weighted average of the five metrics seen.</em></p>
+
+*Football data from [StatsBomb](https://github.com/statsbomb/open-dataRadar) and radar graph built using [mplsoccer](https://mplsoccer.readthedocs.io/en/latest/index.html).*  
