@@ -1,6 +1,5 @@
 statsbombpy
 pandas
 matplotlib
-seaborn
 mplsoccer
 scikit-learn
